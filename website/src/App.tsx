@@ -11,12 +11,12 @@ const App: React.FC = () => {
   };
 
   const navItems = [
-    { name: 'Education', path: '/education' },
-    { name: 'Work History', path: '/work-history' },
-    { name: 'Tech Stack', path: '/tech-stack' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'About', path: '/website/about' },
+    { name: 'Education', path: '/website/education' },
+    { name: 'Work History', path: '/website/work-history' },
+    { name: 'Tech Stack', path: '/website/tech-stack' },
+    { name: 'Projects', path: '/website/projects' },
+    { name: 'Contact', path: '/website/contact' },
   ];
 
   return (
@@ -34,9 +34,9 @@ const App: React.FC = () => {
               )}
             </button>
           </div>
-          <ul className={`md:flex space-x-4 ${isOpen ? 'block' : 'hidden'} md:block`}>
-            {navItems.map((item) => (
-              <li key={item.name}>
+          <ul className={`md:flex ${isOpen ? 'block' : 'hidden'} md:block`}>
+            {navItems.map((item, index, array) => (
+              <li key={item.name} className={`px-4 py-2 ${index < array.length - 1 ? 'border-r' : ''}`}>
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>

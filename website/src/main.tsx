@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import App from './App';
 import Education from './pages/education';
 import WorkHistory from './pages/work-history';
@@ -16,12 +16,13 @@ root.render(
     <BrowserRouter>
       <App />
       <Routes>
-        <Route path="/education" element={<Education />} />
-        <Route path="/work-history" element={<WorkHistory />} />
-        <Route path="/tech-stack" element={<TechStack />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/website" element={<Navigate to="/website/about" replace />} />
+        <Route path="/website/education" element={<Education />} />
+        <Route path="/website/work-history" element={<WorkHistory />} />
+        <Route path="/website/tech-stack" element={<TechStack />} />
+        <Route path="/website/projects" element={<Projects />} />
+        <Route path="/website/about" element={<About />} />
+        <Route path="/website/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
